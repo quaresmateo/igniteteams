@@ -1,11 +1,14 @@
 import { Groups } from '@/screens/Groups'
-import { ThemeProvider } from 'styled-components'
 import theme from '@/theme'
+import { ThemeProvider } from 'styled-components'
+import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto'
+import { Loading } from '@/components/Loading'
 
 export default function App() {
-  return (
-    <ThemeProvider theme={theme}>
-      <Groups />
-    </ThemeProvider>
-  )
+  const [fontsLoaded] = useFonts({
+    Roboto_400Regular,
+    Roboto_700Bold
+  })
+
+  return <ThemeProvider theme={theme}>{fontsLoaded ? <Groups /> : <Loading />}</ThemeProvider>
 }
