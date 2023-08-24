@@ -4,6 +4,7 @@ import { Container, Form } from '@/screens/Players/styles'
 import { Header } from '@/components/Header'
 import { Highlight } from '@/components/Highlight'
 import { Input } from '@/components/Input'
+import { Filter } from '@/components/Filter'
 
 export function Players() {
   return (
@@ -16,7 +17,9 @@ export function Players() {
         <ButtonIcon icon='add' />
       </Form>
 
-      <Button label='Remover turma' type='SECONDARY' />
+      <Filter title='Time 1' isActive></Filter>
+
+      {/* <Button label='Remover turma' type='SECONDARY' /> */}
     </Container>
   )
 }
