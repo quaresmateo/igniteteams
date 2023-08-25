@@ -2,7 +2,7 @@ import { TouchableOpacity } from 'react-native'
 import styled, { css } from 'styled-components/native'
 
 export type FilterStyleProps = {
-  isActive: boolean
+  isActive?: boolean
 }
 
 export const Container = styled(TouchableOpacity)<FilterStyleProps>`

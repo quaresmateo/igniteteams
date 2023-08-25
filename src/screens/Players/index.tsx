@@ -1,12 +1,17 @@
 import { Button } from '@/components/Button'
 import { ButtonIcon } from '@/components/ButtonIcon'
-import { Container, Form } from '@/screens/Players/styles'
+import { Container, Form, HeaderList, NumberOfPlayers } from '@/screens/Players/styles'
 import { Header } from '@/components/Header'
 import { Highlight } from '@/components/Highlight'
 import { Input } from '@/components/Input'
 import { Filter } from '@/components/Filter'
+import { FlatList } from 'react-native'
+import { useState } from 'react'
 
 export function Players() {
+  const [team, setTeam] = useState('team a')
+  const [players, setPlayers] = useState<string[]>([])
+
   return (
     <Container>
       <Header shoeBackButton />
@@ -17,7 +22,15 @@ export function Players() {
         <ButtonIcon icon='add' />
       </Form>
 
-      <Filter title='Time 1' isActive></Filter>
+      <HeaderList>
+        <FlatList
+          data={['time a', 'time b']}
+          keyExtractor={(item) => item}
+          renderItem={({ item }) => <Filter title={item} onPress={() => setTeam(item)} isActive={item === team} />}
+          horizontal
+        />
+        <NumberOfPlayers>{players.length}</NumberOfPlayers>
+      </HeaderList>
 
       {/* <Button label='Remover turma' type='SECONDARY' /> */}
     </Container>
