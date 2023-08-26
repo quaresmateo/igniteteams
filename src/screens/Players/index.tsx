@@ -11,17 +11,8 @@ import { Container, Form, HeaderList, NumberOfPlayers } from '@/screens/Players/
 import { ListEmpty } from '@/components/ListEmpty'
 
 export function Players() {
-  const [team, setTeam] = useState('team a')
-  const [players, setPlayers] = useState<string[]>([
-    'josé',
-    'maria',
-    'joao',
-    'pedrin',
-    'joseh',
-    'mariah',
-    'jãao',
-    'pedro'
-  ])
+  const [team, setTeam] = useState('time a')
+  const [players, setPlayers] = useState<string[]>([])
 
   return (
     <Container>

@@ -20,6 +20,7 @@ export function Groups() {
         renderItem={({ item }) => <GroupCard title={item} />}
         contentContainerStyle={groups.length === 0 && { flex: 1 }}
         ListEmptyComponent={<ListEmpty message='Nenhuma turma encontrada. 🤷‍♂️' />}
+        showsHorizontalScrollIndicator={false}
       />
       <Button label='Criar turma' />
     </Container>
