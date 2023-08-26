@@ -8,10 +8,20 @@ import { Highlight } from '@/components/Highlight'
 import { PlayerCard } from '@/components/PlayerCard'
 import { ButtonIcon } from '@/components/ButtonIcon'
 import { Container, Form, HeaderList, NumberOfPlayers } from '@/screens/Players/styles'
+import { ListEmpty } from '@/components/ListEmpty'
 
 export function Players() {
   const [team, setTeam] = useState('team a')
-  const [players, setPlayers] = useState<string[]>(['Teoian', 'Von', 'Guilherme'])
+  const [players, setPlayers] = useState<string[]>([
+    'josé',
+    'maria',
+    'joao',
+    'pedrin',
+    'joseh',
+    'mariah',
+    'jãao',
+    'pedro'
+  ])
 
   return (
     <Container>
@@ -33,9 +43,16 @@ export function Players() {
         <NumberOfPlayers>{players.length}</NumberOfPlayers>
       </HeaderList>
 
-      <FlatList data={players} keyExtractor={(item) => item} renderItem={({ item }) => <PlayerCard name={item} />} />
+      <FlatList
+        data={players}
+        keyExtractor={(item) => item}
+        renderItem={({ item }) => <PlayerCard name={item} />}
+        ListEmptyComponent={<ListEmpty message='Não há pessoas ness time  🍃' />}
+        contentContainerStyle={[players.length === 0 && { flex: 1 }, { paddingBottom: 100 }]}
+        showsVerticalScrollIndicator={false}
+      />
 
-      {/* <Button label='Remover turma' type='SECONDARY' /> */}
+      <Button label='Remover turma' type='SECONDARY' />
     </Container>
   )
 }
