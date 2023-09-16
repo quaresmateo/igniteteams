@@ -1,23 +1,28 @@
-import { useState } from 'react'
-import { FlatList } from 'react-native'
-import { Input } from '@/components/Input'
+import { Container, Form, HeaderList, NumberOfPlayers } from '@/screens/Players/styles'
+import { PlayerCard } from '@/components/PlayerCard'
+import { ButtonIcon } from '@/components/ButtonIcon'
+import { useRoute } from '@react-navigation/native'
+import { Highlight } from '@/components/Highlight'
+import { ListEmpty } from '@/components/ListEmpty'
 import { Filter } from '@/components/Filter'
 import { Header } from '@/components/Header'
 import { Button } from '@/components/Button'
-import { Highlight } from '@/components/Highlight'
-import { PlayerCard } from '@/components/PlayerCard'
-import { ButtonIcon } from '@/components/ButtonIcon'
-import { Container, Form, HeaderList, NumberOfPlayers } from '@/screens/Players/styles'
-import { ListEmpty } from '@/components/ListEmpty'
+import { Input } from '@/components/Input'
+import { FlatList } from 'react-native'
+import { useState } from 'react'
 
 export function Players() {
   const [team, setTeam] = useState('time a')
   const [players, setPlayers] = useState<string[]>([])
 
+  const route = useRoute()
+
+  const { group } = route.params as { group: string }
+
   return (
     <Container>
       <Header shoeBackButton />
-      <Highlight title='Nome da turma' subtitle='adiciona a galera e separe os times' />
+      <Highlight title={group} subtitle='adiciona a galera e separe os times' />
 
       <Form>
         <Input placeholder='Nome da pessoa' autoCorrect={false} />
