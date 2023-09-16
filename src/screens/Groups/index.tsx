@@ -1,14 +1,20 @@
-import { Button } from '@/components/Button'
+import { useNavigation } from '@react-navigation/native'
+import { Container } from '@/screens/Groups/styles'
 import { GroupCard } from '@/components/GroupCard'
-import { Header } from '@/components/Header'
 import { Highlight } from '@/components/Highlight'
 import { ListEmpty } from '@/components/ListEmpty'
-import { Container } from '@/screens/Groups/styles'
-import { useState } from 'react'
+import { Button } from '@/components/Button'
+import { Header } from '@/components/Header'
 import { FlatList } from 'react-native'
+import { useState } from 'react'
 
 export function Groups() {
   const [groups, setGroups] = useState<string[]>([])
+
+  const navigation = useNavigation()
+  function handleNavigateToNewGroup() {
+    navigation.navigate('new')
+  }
 
   return (
     <Container>
@@ -22,7 +28,7 @@ export function Groups() {
         ListEmptyComponent={<ListEmpty message='Nenhuma turma encontrada. 🤷‍♂️' />}
         showsHorizontalScrollIndicator={false}
       />
-      <Button label='Criar turma' />
+      <Button label='Criar turma' onPress={handleNavigateToNewGroup} />
     </Container>
   )
 }

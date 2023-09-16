@@ -14,7 +14,7 @@ export function AppRoutes() {
       }}
     >
       <Screen name='groups' component={Groups} />
-      <Screen name='new-group' component={NewGroup} />
+      <Screen name='new' component={NewGroup} />
       <Screen name='players' component={Players} />
     </Navigator>
   )
